@@ -79,3 +79,5 @@ gradle-app.setting
 # user credentials
 # credentials.json
 .DS_STORE
+.package.json
+.package-lock.json
