@@ -89,4 +89,3 @@ function validateCourse(course) {
     
     return Joi.validate(course, schema);
 }
-hello
