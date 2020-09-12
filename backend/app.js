@@ -5,22 +5,10 @@ const path = require('path');
 
 const port = process.env.PORT || 3000;
 const app = express();
-const cors = require('cors');
-const path = require('path');
+
 app.use(express.json());
 app.use(cors());
 
-
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
-
-});
-
-const courses = [
-    {id: 1, name: 'course1'},
-    {id: 2, name: 'course2'},
-    {id: 3, name: 'course3'}
-]
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
