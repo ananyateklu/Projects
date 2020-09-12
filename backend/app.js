@@ -1,9 +1,19 @@
 const Joi = require('joi');
 const express = require('express');
-const port = 3000
+const cors = require('cors');
+const path = require('path');
+
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+
+});
 
 const courses = [
     {id: 1, name: 'course1'},
@@ -74,14 +84,6 @@ app.delete('/api/courses/:id', (req, res) => {
     res.send(course);
 });
 
-app.listen(port, function(error) {
-    if(error) {
-        console.log('Something went wrong', error)
-    } else {
-        console.log('Server is listening on port ' + port)
-    }
-})
-
 function validateCourse(course) {
     const schema = {
         name: Joi.string().min(3).required()
@@ -89,3 +91,11 @@ function validateCourse(course) {
     
     return Joi.validate(course, schema);
 }
+
+app.listen(port, function(error) {
+    if(error) {
+        console.log('Something went wrong', error)
+    } else {
+        console.log('Server is listening on port ' + port)
+    }
+})
