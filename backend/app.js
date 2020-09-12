@@ -2,8 +2,8 @@ const Joi = require('joi');
 const express = require('express');
 const port = 3000
 const app = express();
+const cors = require('cors');
 const path = require('path');
-
 app.use(express.json());
 
 const courses = [
