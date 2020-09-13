@@ -80,3 +80,4 @@ gradle-app.setting
 # credentials.json
 .DS_STORE
 node_modules
+.env
