@@ -25,7 +25,6 @@ export default class CreateUsers extends Component {
         }
 
         console.log(user);
-
         this.setState({
             username: ''
         })
