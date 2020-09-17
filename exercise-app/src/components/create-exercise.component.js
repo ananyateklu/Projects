@@ -31,12 +31,7 @@ export default class CreateExercise extends Component {
                     username: response.data[0].username
                 })
             }
-        })
-      
-        // this.setState({
-        //     users: ['test user'],
-        //     username: 'hello '
-        // })
+        })  
     }
 
     onChangeUsername(e) {
@@ -71,7 +66,12 @@ export default class CreateExercise extends Component {
 
         }
 
-        console.log(exercise);       
+        console.log(exercise);
+        axios.post('http://localhost:3000/exercises/add', exercise)
+            .then(res => {
+                console.log(res.data);
+                window.location = '/';
+        })
     }
     render() {
         return(
