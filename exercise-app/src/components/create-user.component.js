@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 export default class CreateUsers extends Component {
     constructor(props) {
@@ -25,6 +26,10 @@ export default class CreateUsers extends Component {
         }
 
         console.log(user);
+
+        axios.post('http://localhost:3000/users/add', user)
+            .then(res => console.log(res.data));
+
         this.setState({
             username: ''
         })
@@ -44,7 +49,7 @@ export default class CreateUsers extends Component {
                         onChange={this.onChangeUsername}/>
                 </div> 
                 <div className="form-group">
-                    <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+                    <input type="submit" value="Create User" className="btn btn-primary" />
                 </div>
 
             </form>
